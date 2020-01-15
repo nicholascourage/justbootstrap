@@ -30,7 +30,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
         $files = array(
 
-            'class-template-assets.php'
+            'class-template-assets.php',
+            'class-wp-bootstrap-navwalker.php',
+
         
         );
 

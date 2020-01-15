@@ -31,13 +31,13 @@ class JustBootstrap{
 
     public function __construct(){
 
-        $this->includes();
+        $this->jsb_includes();
 
-        $this->setup();
+        $this->jsb_setup();
 
     }
 
-    public function includes(){
+    public function jsb_includes(){
 
         $this->files = array(
 
@@ -53,11 +53,24 @@ class JustBootstrap{
 
     }
 
-    private function setup(){
+    private function jsb_setup(){
 
         $this->template = new JustBootstrap_Template(); 
 
+        add_action( 'after_setup_theme', array( $this, 'jsb_theme_setup') );
+
     }
+
+    public function jsb_theme_setup(){
+
+        // register nav menus
+		register_nav_menus( array(
+        
+            'primary'       => __( 'Primary Menu', 'justbootstrap' )
+
+        ) );
+
+    }    
 
 }
 
